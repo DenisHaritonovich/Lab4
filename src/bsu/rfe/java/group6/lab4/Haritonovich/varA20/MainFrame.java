@@ -25,7 +25,6 @@ public class MainFrame extends JFrame {
     private JFileChooser fileChooser = null;
     private JCheckBoxMenuItem showAxisMenuItem;
     private JCheckBoxMenuItem showMarkersMenuItem;
-    private JCheckBoxMenuItem shapeRotateAntiClockItem;
     private GraphicsDisplay display = new GraphicsDisplay();
     private boolean fileLoaded = false;
     public MainFrame() {

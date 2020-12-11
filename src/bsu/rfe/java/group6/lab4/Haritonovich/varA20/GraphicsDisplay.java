@@ -31,7 +31,7 @@ public class GraphicsDisplay extends JPanel {
     public GraphicsDisplay() {
         setBackground(Color.WHITE);
         graphicsStroke = new BasicStroke(2.0f, BasicStroke.CAP_BUTT,
-                BasicStroke.JOIN_ROUND, 10.0f, new float[] {1,1,1,1,1,1,3,1,2,1,1}, 0.0f);
+                BasicStroke.JOIN_ROUND, 10.0f, new float[] {6,4}, 0.0f);
         axisStroke = new BasicStroke(2.0f, BasicStroke.CAP_BUTT,
                 BasicStroke.JOIN_MITER, 10.0f, null, 0.0f);
         markerStroke = new BasicStroke(1.0f, BasicStroke.CAP_BUTT,
@@ -139,7 +139,6 @@ public class GraphicsDisplay extends JPanel {
             canvas.draw(new Line2D.Double(shiftPoint(center, 0, 11), shiftPoint(center, 11, 0)));
             canvas.draw(new Line2D.Double(shiftPoint(center, 11, 0), shiftPoint(center, 0, -11)));
             canvas.draw(new Line2D.Double(shiftPoint(center, 0, -11), shiftPoint(center, -11, 0)));
-            canvas.fill(marker);
         }
     }
 
@@ -150,6 +149,10 @@ public class GraphicsDisplay extends JPanel {
         canvas.setPaint(Color.BLACK);
         canvas.setFont(axisFont);
         FontRenderContext context = canvas.getFontRenderContext();
+
+        Point2D.Double labelPos1 = xyToPoint(0, 0);
+        canvas.drawString("0", (float) labelPos1.getX() , (float) labelPos1.getY());
+
         if (minX <= 0.0 && maxX >= 0.0) {
             canvas.draw(new Line2D.Double(xyToPoint(0, maxY),
                     xyToPoint(0, minY)));
